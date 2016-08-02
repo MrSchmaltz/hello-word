@@ -1,2 +1,2 @@
-# hello-word
-my git hello word
+# Hello-Word!
+My Git Hello Word
