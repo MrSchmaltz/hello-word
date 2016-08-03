@@ -1,12 +1,8 @@
-$ git status
-# On branch master
-#
-# Initial commit
-#
-# Untracked files:
-#    (use "git add ,file...." to include in 
-what will be committed)
-#
-#        test.rb
-nothing added to commit but untracked files 
-present (use "git add" to track)
+$ git diff test.rb
+diff --git a/test.rb b/test.rb
+index ce01362..94954ab 100644
+--- a/test.rb
++++ b/test.rb
+@@ -1 +1,2 @@
+ hello
++world
