@@ -36,6 +36,12 @@ Exposing an External IP Address to Access an Application in a Cluster process.
 Following the process from the pages above with my customisation to point to my app on Docker Hub.
 
 ### 1 Creating a service for an application running in five pods
+Create a fodler for your app.
+```
+mkdir myapp
+cd my app
+```
+Create or downlaod the laod balance file.
 ```
 kubectl apply -f https://k8s.io/examples/service/load-balancer-example.yaml
 ```
