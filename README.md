@@ -5,11 +5,10 @@ Build a simple and EKS Docker Stack with Terraform to run a NodeJS App to say He
 AWS EKS / npm/ Terraform / NodeJS / Docker / Kubernetes / Load Balance / Linux Ubuntu / Kubectl / Docker hub.
 
 ## Solution
-
 Login to AWS with AWS CLI and install all the above technologies and create yourself account where necessary.
 
+## Tip: read it on raw mode in order to see the code formation.
 ## Terraform:
-
 Following all process from https://learn.hashicorp.com/tutorials/terraform/eks ending on the deployments so do not need to do Deploy and access Kubernetes Dashboard.
     
 ### Configure kubectl
