@@ -197,6 +197,7 @@ Save and close nano.
 
 ### 4 Edit the pakage.json
 [File on GitHub]( https://github.com/MrSchmaltz/hello-word/blob/master/package.json)
+
 Add the below code line to file package.json
 ```
 "start": "node app.js"
@@ -223,14 +224,14 @@ The final code should look like this below code:
 Save it and close nano.
 
 ### 5 Install npm
+Install npm by
 ```
 sudo apt install npm
 ```
-And
+And 
+Solve one dependency. Need to add it to the package.json file, so I run
 ```
 npm init -y
-```
-```
 npm install express
 ```
 
