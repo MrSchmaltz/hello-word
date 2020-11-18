@@ -70,10 +70,12 @@ spec:
         ports:
         - containerPort: 8080
 ```
- Run the yaml script by this below command:
+Run the yaml script by this below command:
 ```
 kubectl apply -f load-balancer-example.yaml
 ```
+Result if sucessfull:
+deployment.apps/hello-world created
 
 ### 2 Check if it works with below command
 ``` 
