@@ -37,8 +37,8 @@ Following the process from the pages above with my customisation to point to my 
 ### 1 Creating a service for an application running in five pods
 Create a fodler for your app.
 ```
-mkdir myapp
-cd my app
+mkdir app
+cd app
 ```
 Downlaod the laod balance file.
 ```
