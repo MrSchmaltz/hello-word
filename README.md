@@ -178,28 +178,30 @@ Result
 nodeapp_v2:latest
 ```
 ### 10 Now we can run a container from the image
- run
+Run container
 ```
 docker run -d -p 8080:8080 --name node-app examplenode
  ```
-stop
+Stop container
 ```
 sudo docker stop node-app
 ```
- list
+ List container
 ```
 docker container ls -l
 ```
- remove
+ Remove container
 ```
 docker container rm 978bcd06a78d
- images
+```
+ List images
 ```
 docker images
 ```
 ## Repository on docker hub
 [Publishing Docker Image]( https://docs.github.com/en/free-pro-team@latest/actions/guides/publishing-docker-images)
 [Docker Hub]( https://ropenscilabs.github.io/r-docker-tutorial/04-Dockerhub.html)
+
 ```
 docker.io/username/hello-world
 ```
