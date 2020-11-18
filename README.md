@@ -88,6 +88,8 @@ hello-world-697d76678   5         5         5       2m42s
 ### 3 Create a Service object that exposes the deployment
 ``` 
 kubectl expose deployment hello-world --type=LoadBalancer --name=my-service
+
+service/my-service exposed
 ```
 
 ### 4 Display information about the Service
