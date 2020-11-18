@@ -234,19 +234,7 @@ npm init -y
 npm install express
 ```
 
-### 6 Run your docker
-```
-sudo docker-compose up -d
-```
-Use without -d if you wish to see the service running.
-
-### 7 Access your app online
-```
-http:// Your IP : your port
-```
-Make sure the doors are open on the server as I have updated this one to listen on 8080 port on AWS EC2 in order to show hello word locally.
-
-### 8 Creating an image file
+### 6 Creating an image file
 [File on GitHub]( https://github.com/MrSchmaltz/hello-word/blob/master/Dockerfile)
 ```
 nano Dockerfile
@@ -260,6 +248,19 @@ EXPOSE 8080
 CMD ["node", "app.js"]
 ```
 Save and close nano.
+
+### 7 Run your docker
+```
+sudo docker-compose up -d
+```
+Use without -d if you wish to see the service running.
+
+### 8 Access your app online
+```
+http:// Your IP : your port
+```
+Make sure the doors are open on the server as I have updated this one to listen on 8080 port on AWS EC2 in order to show hello word locally.
+
 ### 9 Create a docker image by command.
 ```
 docker build -t nodeapp .
@@ -269,7 +270,7 @@ Successful result
 nodeapp_v2:latest
 ```
 
-### 10 Now we can run a container from the image
+### 10 Now we can run a container from yuor image and access it on your localhost.
 Run container
 ```
 docker run -d -p 8080:8080 --name node-app examplenode
