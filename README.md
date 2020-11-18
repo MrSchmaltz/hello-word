@@ -73,13 +73,16 @@ spec:
 Run the yaml script by this below command:
 ```
 kubectl apply -f load-balancer-example.yaml
-```
-Result if sucessfull:
+
 deployment.apps/hello-world created
+```
 
 ### 2 Check if it works with below command
 ``` 
 kubectl get replicasets
+
+NAME                    DESIRED   CURRENT   READY   AGE
+hello-world-697d76678   5         5         5       2m42s
 ```
 
 ### 3 Create a Service object that exposes the deployment
