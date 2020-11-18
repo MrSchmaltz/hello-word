@@ -155,9 +155,13 @@ mkdir node
 cd node
 ```
 
-### 2 Write your Hello World app.
+### 2 Write your Hello World NodeJS app.
 [File on GitHub]( https://github.com/MrSchmaltz/hello-word/blob/master/app.js)
-Copy the below code to file app.js
+Copy the below code into your file app.js
+```
+nano app.js
+```
+
 ```
 const express = require('express')
 const app = express()
@@ -188,9 +192,10 @@ services:
      - 8080:8080
     command: "npm start"
 ```
+Save and close nano.
 
 ### 4 Edit the pakage.json
-[File on GitHub]( https://github.com/MrSchmaltz/hello-word/blob/master/pakage.json)
+[File on GitHub]( https://github.com/MrSchmaltz/hello-word/blob/master/package.json)
 Add the below code line to file package.json
 ```
 "start": "node app.js"
@@ -242,12 +247,23 @@ Make sure the doors are open on the server as I have updated this one to listen 
 
 ### 8 Creating an image file
 [File on GitHub]( https://github.com/MrSchmaltz/hello-word/blob/master/Dockerfile)
-
+```
+nano Dockerfile
+```
+```
+FROM node:14
+WORKDIR /usr/src/app
+COPY package*.json app.js ./
+RUN npm install
+EXPOSE 8080
+CMD ["node", "app.js"]
+```
+Save and close nano.
 ### 9 Create a docker image by command.
 ```
 docker build -t nodeapp .
 ```
-Result
+Sucessfull result
 ```
 nodeapp_v2:latest
 ```
@@ -261,20 +277,20 @@ Stop container
 ```
 sudo docker stop node-app
 ```
- List container
+List container
 ```
 docker container ls -l
 ```
- Remove container
+Remove container
 ```
 docker container rm 978bcd06a78d
 ```
- List images
+List images
 ```
 docker images
 ```
 
-## Repository on docker hub
+## Repository on Docker Hub.
 [Publishing Docker Image]( https://docs.github.com/en/free-pro-team@latest/actions/guides/publishing-docker-images)
 [Docker Hub]( https://ropenscilabs.github.io/r-docker-tutorial/04-Dockerhub.html)
 
@@ -282,7 +298,7 @@ docker images
 docker.io/username/hello-world
 ```
 
-### Login
+### Login to your Docker Hub by command
 ```
 docker login --username=username
 ```
@@ -292,12 +308,12 @@ docker login --username=username
 docker images
 ```
 
-### Add tag
+### Add tag to your deployment
 ```
 docker tag f4ccc42d64e9 username/hello-world
 ```
 
-### push
+### push it to Docker Hub
 ```
 docker push username/hello-world
 ```
