@@ -1,3 +1,5 @@
+## Docker Hub Repository
+https://hub.docker.com/repository/docker/vschmaltz/hello-world
 ## Task:
 Build a simple and EKS Docker Stack with Terraform to run a NodeJS App to say Hello World, fed by traffic from an Application Load Balancer.
 
@@ -7,7 +9,7 @@ AWS EKS / npm/ Terraform / NodeJS / Docker / Kubernetes / Load Balance / Linux U
 ## Solution
 Login to AWS with AWS CLI and install all the above technologies and create yourself account where necessary.
 
-## Tip: read it on raw mode in order to see the code formation.
+### Tip: read it on raw mode in order to see the code formation and all codes has be created as a file too.
 ## Terraform:
 Following all process from https://learn.hashicorp.com/tutorials/terraform/eks ending on the deployments so do not need to do Deploy and access Kubernetes Dashboard.
     
