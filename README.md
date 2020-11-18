@@ -15,11 +15,9 @@ Build a simple and EKS Docker Stack with Terraform to run a NodeJS App to say He
 - Docker hub
 
 ## Recipe
-
 Login to AWS with AWS CLI and install all the above technologies and create yourself account where necessary.
 
 ## Terraform
-
 Following all process from [Hashicorp](https://learn.hashicorp.com/tutorials/terraform/eks) ending on the deployments so do not need to do Deploy and access Kubernetes Dashboard.
     
 ### Configure kubectl
@@ -27,6 +25,7 @@ Run the following command to retrieve the access credentials for your cluster an
 ```
 aws eks --region $(terraform output region) update-kubeconfig --name $(terraform output cluster_name)
 ```
+
 ## Kubernetes
 [Install Kubectl]( https://kubernetes.io/docs/tasks/tools/install-kubectl/)
 Find how to Install kubectl from this page.
@@ -41,16 +40,13 @@ Create a fodler for your app.
 mkdir myapp
 cd my app
 ```
-Create or downlaod the laod balance file.
+Downlaod the laod balance file.
 ```
 kubectl apply -f https://k8s.io/examples/service/load-balancer-example.yaml
 ```
-Or create a file in your computer if you wish to customise then apply with bellow command:
-```
-kubectl apply -f load-balancer-example.yaml
-```
-Custon script
-Change "- image: gcr.io/google-samples/node-hello:1.0" to point to my repository "- image: docker.io/vschmaltz/hello-world" on Docker Hub and load my Hello World app.
+Or create a file in your computer if you wish to customise as per my exemple below.
+Custon changes to my script.
+Change the line "- image: gcr.io/google-samples/node-hello:1.0" to point to my repository "- image: docker.io/vschmaltz/hello-world" on Docker Hub and load my Hello World app.
 ```
 apiVersion: apps/v1
 kind: Deployment
@@ -73,32 +69,43 @@ spec:
         name: hello-world
         ports:
         - containerPort: 8080
- ```
+```
+ Run the yaml script by this below command:
+```
+kubectl apply -f load-balancer-example.yaml
+```
+
 ### 2 Check if it works with below command
 ``` 
 kubectl get replicasets
- ```
+```
+
 ### 3 Create a Service object that exposes the deployment
 ``` 
 kubectl expose deployment hello-world --type=LoadBalancer --name=my-service
- ```
+```
+
 ### 4 Display information about the Service
- ```
+```
 kubectl get services my-service
 ``` 
+
 ### 5 Display detailed information about the Service
- ```
+```
 kubectl describe services my-service
 ```
+
 ### Delete Kubernetes commands
 ### 1 To delete the LoadBalance Service, enter this command:
 ```
 kubectl delete services my-service
 ```
+
 ### 2 To delete the Deployment, the ReplicaSet, and the Pods that are running the Hello World application, enter this command:
 ```
 kubectl delete deployment hello-world
 ```
+
 ### Creating a Hello Word NodeJS app
 [GitHub]( https://github.com/nodejs/docker-node/blob/master/README.md#how-to-use-this-image)
 [Docker Node Container Example]( https://flaviocopes.com/docker-node-container-example/)
@@ -108,17 +115,17 @@ const app = express()
 
 app.get('/', (req, res) => res.send('Hello World!'))
 app.listen(8080, () => console.log('Server ready'))
-
 ```
+
 ### 1 Create a directory for your app
 ```
 mkdir node
 cd node
 ```
+
 ### 2 Write your Hello World app.
 [File on GitHub]( https://github.com/MrSchmaltz/hello-word/blob/master/app.js)
-
-copy the below code to file app.js
+Copy the below code to file app.js
 ```
 const express = require('express')
 const app = express()
@@ -130,9 +137,10 @@ Save and close nano.
 
 ### 3 Create your compose yaml file
 [File on GitHub]( https://github.com/MrSchmaltz/hello-word/blob/master/docker-compose.yaml)
+```
 nano docker-compose.yaml
-
-copy the below code to your file docker-compose.yaml
+```
+Copy the below code to your file docker-compose.yaml
 ```
 version: "2"
 services:
@@ -148,6 +156,7 @@ services:
      - 8080:8080
     command: "npm start"
 ```
+
 ### 4 Edit the pakage.json
 [File on GitHub]( https://github.com/MrSchmaltz/hello-word/blob/master/pakage.json)
 Add the below code line to file package.json
@@ -186,6 +195,7 @@ npm init -y
 ```
 npm install express
 ```
+
 ### 6 Run your docker
 ```
 sudo docker-compose up -d
@@ -209,6 +219,7 @@ Result
 ```
 nodeapp_v2:latest
 ```
+
 ### 10 Now we can run a container from the image
 Run container
 ```
@@ -230,6 +241,7 @@ docker container rm 978bcd06a78d
 ```
 docker images
 ```
+
 ## Repository on docker hub
 [Publishing Docker Image]( https://docs.github.com/en/free-pro-team@latest/actions/guides/publishing-docker-images)
 [Docker Hub]( https://ropenscilabs.github.io/r-docker-tutorial/04-Dockerhub.html)
@@ -237,19 +249,24 @@ docker images
 ```
 docker.io/username/hello-world
 ```
+
 ### Login
 ```
 docker login --username=username
 ```
+
 ### List images
 ```
 docker images
 ```
+
 ### Add tag
 ```
 docker tag f4ccc42d64e9 username/hello-world
 ```
+
 ### push
 ```
 docker push username/hello-world
 ```
+Good luck and get in touch if you need so.
