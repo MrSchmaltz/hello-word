@@ -37,18 +37,12 @@ Exposing an External IP Address to Access an Application in a Cluster process.
 Following the process from the pages above with my customisation to point to my app on Docker Hub.
 
 ### 1 Creating a service for an application running in five pods
-Create a fodler for your app.
-```
-mkdir app
-cd app
-```
-Downlaod the laod balance file.
+Downlaod the laodbalance file.
 ```
 kubectl apply -f https://k8s.io/examples/service/load-balancer-example.yaml
 ```
 Or create a file in your computer if you wish to customise as per my exemple below.
-Custon changes to my script.
-Change the line "- image: gcr.io/google-samples/node-hello:1.0" to point to my repository "- image: docker.io/vschmaltz/hello-world" on Docker Hub and load my Hello World app.
+The custon change to my script is to the script deployment point to my Docker Hub app by change this line "- image: gcr.io/google-samples/node-hello:1.0" to point to my repository instead "- image: docker.io/vschmaltz/hello-world" on Docker Hub and load my Hello World app that I will expalain bellow how to create and uplaod to your repository.
 ```
 apiVersion: apps/v1
 kind: Deployment
