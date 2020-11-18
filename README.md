@@ -271,7 +271,7 @@ Successful result
 nodeapp_v2:latest
 ```
 
-### 10 Now we can run a container from yuor image and access it on your localhost.
+### 10 Now we can run a container from your image and access it on your localhost.
 Run container
 ```
 docker run -d -p 8080:8080 --name node-app examplenode
