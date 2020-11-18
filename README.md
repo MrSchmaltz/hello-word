@@ -29,12 +29,13 @@ aws eks --region $(terraform output region) update-kubeconfig --name $(terraform
 ```
 ## Kubernetes
 [Install Kubectl]( https://kubernetes.io/docs/tasks/tools/install-kubectl/)
+Find how to Install kubectl from the page above.
+
 [Expose External IP]( https://kubernetes.io/docs/tutorials/stateless-application/expose-external-ip-address/)
 Exposing an External IP Address to Access an Application in a Cluster
-Follow the process from the page above.
+Following the process from the page above.
 
 ### 1 Creating a service for an application running in five pods
-Find how to Install kubectl from the page above.
 ```
 kubectl apply -f https://k8s.io/examples/service/load-balancer-example.yaml
 ```
@@ -42,6 +43,31 @@ Or create a file in your computer if you wish to customise then apply with bello
 ```
 kubectl apply -f load-balancer-example.yaml
 ```
+Custon script
+Line 65 to point to my repository on Docker Hub and load my Hello World app.
+```
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app.kubernetes.io/name: load-balancer-example
+  name: hello-world
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: load-balancer-example
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: load-balancer-example
+    spec:
+      containers:
+      - image: docker.io/vschmaltz/hello-world
+        name: hello-world
+        ports:
+        - containerPort: 8080
+ ```
 ### 2 Check if it works with below command
 ``` 
 kubectl get replicasets
