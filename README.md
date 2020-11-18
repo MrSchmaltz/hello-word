@@ -37,12 +37,12 @@ Exposing an External IP Address to Access an Application in a Cluster process.
 Following the process from the pages above with my customisation to point to my app on Docker Hub.
 
 ### 1 Creating a service for an application running in five pods
-Downlaod the laodbalance file.
+Download the laodbalance file.
 ```
 kubectl apply -f https://k8s.io/examples/service/load-balancer-example.yaml
 ```
-Or create a file in your computer if you wish to customise as per my exemple below.
-The custon change to my script is to the script deployment point to my Docker Hub app by change this line "- image: gcr.io/google-samples/node-hello:1.0" to point to my repository instead "- image: docker.io/vschmaltz/hello-world" on Docker Hub and load my Hello World app that I will expalain bellow how to create and uplaod to your repository.
+Or create a file in your computer if you wish to customise as per my example below.
+The custom change to my script is to the script deployment point to my Docker Hub app by change this line "- image: gcr.io/google-samples/node-hello:1.0" to point to my repository instead "- image: docker.io/vschmaltz/hello-world" on Docker Hub and load my Hello World app that I will explain below how to create and upload to your repository.
 ```
 apiVersion: apps/v1
 kind: Deployment
@@ -95,7 +95,7 @@ kubectl get services my-service
 NAME         TYPE           CLUSTER-IP      EXTERNAL-IP                                                              PORT(S)          AGE
 my-service   LoadBalancer   172.20.89.199   ad6c509a886234dcd91d5311f74cdbae-368390956.us-east-2.elb.amazonaws.com   8080:30596/TCP   57s
 ``` 
-### 5 Check if you app is up and running
+### 5 Check if your app is up and running
 ```
 curl ad6c509a886234dcd91d5311f74cdbae-368390956.us-east-2.elb.amazonaws.com:8080
 
@@ -104,7 +104,7 @@ Hello World!
 Tip: If you got Could not resolve host error:
 curl: (6) Could not resolve host: a9106ca9883d0412da85aac64429ac36-14558414.us-east-2.elb.amazonaws.com
 
-This error happen if you forgot to Configure kubectl so run it again:
+This error happens if you forgot to Configure kubectl so run it again:
 aws eks --region $(terraform output region) update-kubeconfig --name $(terraform output cluster_name)
 ```
 ### 6 Display detailed information about the Service
@@ -132,7 +132,7 @@ Events:
   Normal  EnsuredLoadBalancer   4m21s  service-controller  Ensured load balancer
 ```
 
-### Folow with below commands if you wish delete your Kubernetes  LoadBalance and Replicas with commands.
+### Follow with below commands if you wish to delete your Kubernetes  LoadBalance and Replicas with commands.
 ### 1 To delete the LoadBalance Service, enter this command:
 ```
 kubectl delete services my-service
@@ -263,7 +263,7 @@ Save and close nano.
 ```
 docker build -t nodeapp .
 ```
-Sucessfull result
+Successful result
 ```
 nodeapp_v2:latest
 ```
