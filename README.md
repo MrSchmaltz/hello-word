@@ -130,10 +130,12 @@ Events:
   Normal  EnsuredLoadBalancer   4m21s  service-controller  Ensured load balancer
 ```
 
-### Folow with below commands if you wish delete your Kubernetes with commands.
+### Folow with below commands if you wish delete your Kubernetes  LoadBalance and Replicas with commands.
 ### 1 To delete the LoadBalance Service, enter this command:
 ```
 kubectl delete services my-service
+
+service "my-service" deleted
 ```
 
 ### 2 To delete the Deployment, the ReplicaSet, and the Pods that are running the Hello World application, enter this command:
