@@ -95,14 +95,42 @@ service/my-service exposed
 ### 4 Display information about the Service
 ```
 kubectl get services my-service
-``` 
 
-### 5 Display detailed information about the Service
+NAME         TYPE           CLUSTER-IP      EXTERNAL-IP                                                              PORT(S)          AGE
+my-service   LoadBalancer   172.20.89.199   ad6c509a886234dcd91d5311f74cdbae-368390956.us-east-2.elb.amazonaws.com   8080:30596/TCP   57s
+``` 
+### 5 Check if you app is up and running
+```
+curl ad6c509a886234dcd91d5311f74cdbae-368390956.us-east-2.elb.amazonaws.com:8080
+
+Hello World!
+```
+### 6 Display detailed information about the Service
 ```
 kubectl describe services my-service
+
+Name:                     my-service
+Namespace:                default
+Labels:                   app.kubernetes.io/name=load-balancer-example
+Annotations:              <none>
+Selector:                 app.kubernetes.io/name=load-balancer-example
+Type:                     LoadBalancer
+IP:                       172.20.89.199
+LoadBalancer Ingress:     ad6c509a886234dcd91d5311f74cdbae-368390956.us-east-2.elb.amazonaws.com
+Port:                     <unset>  8080/TCP
+TargetPort:               8080/TCP
+NodePort:                 <unset>  30596/TCP
+Endpoints:                10.0.1.108:8080,10.0.1.125:8080,10.0.3.200:8080 + 2 more...
+Session Affinity:         None
+External Traffic Policy:  Cluster
+Events:
+  Type    Reason                Age    From                Message
+  ----    ------                ----   ----                -------
+  Normal  EnsuringLoadBalancer  4m23s  service-controller  Ensuring load balancer
+  Normal  EnsuredLoadBalancer   4m21s  service-controller  Ensured load balancer
 ```
 
-### Delete Kubernetes commands
+### Folow with below commands if you wish delete your Kubernetes with commands.
 ### 1 To delete the LoadBalance Service, enter this command:
 ```
 kubectl delete services my-service
@@ -116,13 +144,6 @@ kubectl delete deployment hello-world
 ### Creating a Hello Word NodeJS app
 [GitHub]( https://github.com/nodejs/docker-node/blob/master/README.md#how-to-use-this-image)
 [Docker Node Container Example]( https://flaviocopes.com/docker-node-container-example/)
-```
-const express = require('express')
-const app = express()
-
-app.get('/', (req, res) => res.send('Hello World!'))
-app.listen(8080, () => console.log('Server ready'))
-```
 
 ### 1 Create a directory for your app
 ```
