@@ -24,6 +24,8 @@ Following all process from [Hashicorp](https://learn.hashicorp.com/tutorials/ter
 Run the following command to retrieve the access credentials for your cluster and automatically configure kubectl.
 ```
 aws eks --region $(terraform output region) update-kubeconfig --name $(terraform output cluster_name)
+
+Updated context arn:aws:eks:us-east-2:896122536643:cluster/training-eks-0gw7XQwP in /home/ubuntu/.kube/config
 ```
 
 ## Kubernetes
