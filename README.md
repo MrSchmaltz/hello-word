@@ -106,6 +106,12 @@ my-service   LoadBalancer   172.20.89.199   ad6c509a886234dcd91d5311f74cdbae-368
 curl ad6c509a886234dcd91d5311f74cdbae-368390956.us-east-2.elb.amazonaws.com:8080
 
 Hello World!
+
+Tip: If you got Could not resolve host error:
+curl: (6) Could not resolve host: a9106ca9883d0412da85aac64429ac36-14558414.us-east-2.elb.amazonaws.com
+
+This error happen if you forgot to Configure kubectl so run it again:
+aws eks --region $(terraform output region) update-kubeconfig --name $(terraform output cluster_name)
 ```
 ### 6 Display detailed information about the Service
 ```
