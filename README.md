@@ -293,6 +293,7 @@ docker images
 
 ## Repository on Docker Hub.
 [Publishing Docker Image]( https://docs.github.com/en/free-pro-team@latest/actions/guides/publishing-docker-images)
+
 [Docker Hub]( https://ropenscilabs.github.io/r-docker-tutorial/04-Dockerhub.html)
 
 ```
