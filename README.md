@@ -29,11 +29,11 @@ aws eks --region $(terraform output region) update-kubeconfig --name $(terraform
 ```
 ## Kubernetes
 [Install Kubectl]( https://kubernetes.io/docs/tasks/tools/install-kubectl/)
-Find how to Install kubectl from the page above.
+Find how to Install kubectl from this page.
 
 [Expose External IP]( https://kubernetes.io/docs/tutorials/stateless-application/expose-external-ip-address/)
-Exposing an External IP Address to Access an Application in a Cluster
-Following the process from the page above.
+Exposing an External IP Address to Access an Application in a Cluster process.
+Following the process from the pages above with my customisation to point to my app on Docker Hub.
 
 ### 1 Creating a service for an application running in five pods
 ```
