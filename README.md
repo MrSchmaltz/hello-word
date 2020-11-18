@@ -44,7 +44,7 @@ Or create a file in your computer if you wish to customise then apply with bello
 kubectl apply -f load-balancer-example.yaml
 ```
 Custon script
-Line 65 to point to my repository on Docker Hub and load my Hello World app.
+Change "- image: gcr.io/google-samples/node-hello:1.0" to point to my repository "- image: docker.io/vschmaltz/hello-world" on Docker Hub and load my Hello World app.
 ```
 apiVersion: apps/v1
 kind: Deployment
