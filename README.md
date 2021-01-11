@@ -1,7 +1,7 @@
 ### Tip: All files can be found in [GitHub](https://github.com/MrSchmaltz/hello-word)
 ## Task
 Build a simple and EKS Docker Stack with Terraform to run a NodeJS App to say Hello World, fed by traffic from an Application Load Balancer.
-
+WARNING: This module and the automated tests for it deploy real resources into your AWS account which can cost you money. 
 ## Technologies
 - AWS EKS
 - npm
